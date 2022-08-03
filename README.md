@@ -1,5 +1,5 @@
 # papi
-**papi** is a acronym for Personal Amazon Price Inflation. It computes this as a percentage using the [Laspereyes](https://en.wikipedia.org/w/index.php?title=List_of_price_index_formulas&oldid=1077502962#Laspeyres) formula. Using it meaningfully requires a substantial order history on Amazon over a long period. This software is not associated with Amazon.
+**papi** (Personal Amazon Price Inflation) computes the running annual price inflation percentage using the [Laspereyes](https://en.wikipedia.org/w/index.php?title=List_of_price_index_formulas&oldid=1077502962#Laspeyres) formula. Using it meaningfully requires a substantial order history on Amazon over a long period. This software is not associated with Amazon.
 
 ## Usage
 
