@@ -12,7 +12,7 @@ In this software, with regard to the implemented [price index calculation](https
 * The **base period** is one year before the later period, e.g. from 22 May 2020 to 21 May 2021.
 
 Steps:
-1. Find the average price (with tax) of each ordered item in each of the two periods. Only the items having *Condition=`new`* are considered.
+1. Find the average price (with tax) of each ordered item in each of the two periods. Only the items having *Condition=new* are considered.
 
 # Usage
 
