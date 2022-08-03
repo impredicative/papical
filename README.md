@@ -1,9 +1,7 @@
 # papi
 **papi** (Personal Amazon Price Inflation) computes your running annual price inflation percentage using the [Laspereyes](https://en.wikipedia.org/w/index.php?title=List_of_price_index_formulas&oldid=1077502962#Laspeyres) approach. Using it requires a substantial order history on Amazon.com over at least the last two years.
 
-Disclaimers:
-* This software is not associated with Amazon.
-* No guarantee is made about the correctness, usefulness, or representativeness of the computed numbers.
+As a disclaimer, this software is not associated with Amazon. No guarantee is made about the correctness, usefulness, or representativeness of the computed numbers.
 
 # Approach
 
