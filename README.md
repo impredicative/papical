@@ -13,7 +13,7 @@ Steps:
 
 # Usage
 
-Download the CSV of your [order history]((https://www.amazon.com/b2b/reports)) using these parameters:
+Download the CSV of your [order history](https://www.amazon.com/b2b/reports) using these parameters:
 - Report Type: Items
 - Start Date: 01/01/2006
 - End Date: (today's date, e.g. 07/14/2022)
