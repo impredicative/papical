@@ -7,9 +7,9 @@ Disclaimers:
 
 # Approach
 
-In this software, with regard to the implemented [price index calculation](https://en.wikipedia.org/w/index.php?title=Price_index&oldid=1062591479#Formal_calculation),
-* The **later period** is the period from the most recent order date (of any order) to a year before it, e.g. from 22 May 2021 to 21 May 2022.
-* The **base period** is one year before the later period, e.g. from 22 May 2020 to 21 May 2021.
+In the implemented [price index calculation](https://en.wikipedia.org/w/index.php?title=Price_index&oldid=1062591479#Formal_calculation),
+* The **later period** is defined as the period from the most recent order date (of any order) to a year before it, e.g. from 22 May 2021 to 21 May 2022.
+* The **base period** is defined as one year before the later period, e.g. from 22 May 2020 to 21 May 2021.
 
 Steps:
 1. Find the average price (with tax) of each ordered item in each of the two periods. Only items having *Condition=new* are considered.
