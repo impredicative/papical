@@ -24,5 +24,5 @@ Download the CSV of your [order history]((https://www.amazon.com/b2b/reports)) u
 In a new Python 3.10 virtual environment:
 ```shell
 $ pip install -r ./requirements.txt
-$ python -m papi.papi ./your_data.csv
+$ python -m papi ./your_data.csv
 ```
