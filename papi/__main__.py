@@ -31,6 +31,7 @@ df_date_ranges = df_date_ranges[df_date_ranges['BaseBegin'] >= oldest_order_date
 # print(df_date_ranges)
 
 subset_columns = ['Product', 'Quantity', 'Cost']
+inflation = []
 for date_range in df_date_ranges.itertuples():
     df_later = df[(date_range.LaterBegin <= df['Date']) & (df['Date'] <= date_range.LaterEnd)][subset_columns]
     df_base = df[(date_range.BaseBegin <= df['Date']) & (df['Date'] <= date_range.BaseEnd)][subset_columns]
@@ -53,4 +54,7 @@ for date_range in df_date_ranges.itertuples():
     laspeyres = (cost_sums['LaspeyresCostLater'] / cost_sums['LaspeyresCostBase']) - 1
     paasche = (cost_sums['PaascheCostLater'] / cost_sums['PaascheCostBase']) - 1
     later_end_date = date_range.LaterEnd.date()
-    print(f'{later_end_date}: Items={num_items:,}, Laspeyres={laspeyres:.1%}, Paasche={paasche:.1%}')
+    inflation.append({'Date': later_end_date, 'NumItems': num_items, 'Laspeyres': laspeyres, 'Paasche': paasche})
+    print(f'{later_end_date}: NumItems={num_items:,}, Laspeyres={laspeyres:.1%}, Paasche={paasche:.1%}')
+df_inflation = pd.DataFrame(inflation)
+print(df_inflation)
