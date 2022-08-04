@@ -1,5 +1,5 @@
 # papi
-**papi** (Personal Amazon Price Inflation) computes your running annual price inflation percentage using the [Laspereyes](https://en.wikipedia.org/w/index.php?title=List_of_price_index_formulas&oldid=1077502962#Laspeyres) approach. Using it requires a substantial order history on Amazon.com over at least the last two years.
+**papi** (Personal Amazon Price Inflation) computes your running annual price inflation percentage using the [Laspereyes](https://en.wikipedia.org/w/index.php?title=List_of_price_index_formulas&oldid=1077502962#Laspeyres) approach. This requires a substantial order history on Amazon.com over at least the last two years.
 
 In the implemented [price index calculation](https://en.wikipedia.org/w/index.php?title=Price_index&oldid=1062591479#Formal_calculation),
 * The **later period** is defined as the period from the most recent order date (of any order) to a year before it, e.g. from 22 May 2021 to 21 May 2022.
