@@ -16,9 +16,12 @@ assert df['Date'].is_monotonic_increasing
 assert (df['ASIN'].notna() & (df['ASIN'] != "")).all()
 df.drop_duplicates(subset=['Order', 'ASIN'], inplace=True)
 del df['Order']
-df.reset_index(drop=True)
-print(df)
-print(df.dtypes)
+df.reset_index(drop=True, inplace=True)
+# print(df)
+# print(df.dtypes)
 
-possible_later_period_end_dates = df['Date'].drop_duplicates()[::-1]
-possible_later_period_start_dates = possible_later_period_end_dates - pd.DateOffset(years=1)
+df_date_ranges = df['Date'].drop_duplicates()[::-1].reset_index(drop=True).to_frame(name='LaterEnd')
+df_date_ranges['LaterBegin'] = df_date_ranges['LaterEnd'] - pd.DateOffset(years=1, days=-1)
+# df_date_ranges['BaseEnd'] = df_date_ranges['LaterBegin'] - pd.DateOffset(days=1)
+# df_date_ranges['BaseBegin'] = df_date_ranges['BaseEnd'] - pd.DateOffset(years=1)
+print(df_date_ranges)
