@@ -16,5 +16,9 @@ assert df['Date'].is_monotonic_increasing
 assert (df['ASIN'].notna() & (df['ASIN'] != "")).all()
 df.drop_duplicates(subset=['Order', 'ASIN'], inplace=True)
 del df['Order']
+df.reset_index(drop=True)
 print(df)
 print(df.dtypes)
+
+possible_later_period_end_dates = df['Date'].drop_duplicates()[::-1]
+possible_later_period_start_dates = possible_later_period_end_dates - pd.DateOffset(years=1)
