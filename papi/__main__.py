@@ -1,3 +1,4 @@
+from datetime import date
 import sys
 
 import pandas as pd
@@ -40,7 +41,16 @@ for date_range in df_date_ranges.itertuples():
     df_base = df_base[df_base['Product'].isin(common_products)].groupby('Product').sum()
     df_later['AvgCost'] = df_later['Cost'] / df_later['Quantity']
     df_base['AvgCost'] = df_base['Cost'] / df_base['Quantity']
-    del df_later['Cost']
-    del df_base['Cost']
+    del df_later['Cost'], df_base['Cost']
     df_date_range = pd.merge(df_later, df_base, on='Product', suffixes=('Later', 'Base'), validate='1:1')
-    pass
+    df_date_range['LaspeyresCostLater'] = df_date_range['AvgCostLater'] * df_date_range['QuantityBase']
+    df_date_range['LaspeyresCostBase'] = df_date_range['AvgCostBase'] * df_date_range['QuantityBase']
+    df_date_range['PaascheCostLater'] = df_date_range['AvgCostLater'] * df_date_range['QuantityLater']
+    df_date_range['PaascheCostBase'] = df_date_range['AvgCostBase'] * df_date_range['QuantityLater']
+    df_date_range = df_date_range[['LaspeyresCostLater', 'LaspeyresCostBase', 'PaascheCostLater', 'PaascheCostBase']]
+    num_items = len(df_date_range)
+    cost_sums = df_date_range.sum()
+    laspeyres = (cost_sums['LaspeyresCostLater'] / cost_sums['LaspeyresCostBase']) - 1
+    paasche = (cost_sums['PaascheCostLater'] / cost_sums['PaascheCostBase']) - 1
+    later_end_date = date_range.LaterEnd.date()
+    print(f'{later_end_date}: Items={num_items:,}, Laspeyres={laspeyres:.1%}, Paasche={paasche:.1%}')
