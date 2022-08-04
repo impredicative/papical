@@ -9,13 +9,13 @@ df_path = sys.argv[1] if sys.argv[1:] else SAMPLE_PATH
 df = pd.read_csv(df_path, usecols=INPUT_USED_COLS, parse_dates=['Order Date'],
                 converters={'Item Total': lambda s: float(s.lstrip('$').replace(',', ''))},
                 )
-df.rename(columns={'Order Date': 'Date', 'Order ID': 'Order', 'ASIN/ISBN': 'ASIN', 'Item Total': 'TotalCost'}, inplace=True)
+df.rename(columns={'Order Date': 'Date', 'Order ID': 'Order', 'ASIN/ISBN': 'Product', 'Item Total': 'Total'}, inplace=True)
 df = df[df['Condition']=='new']
 del df['Condition']
-df = df[(df['Quantity'] >= 1) & (df['TotalCost'] > 0)]
+df = df[(df['Quantity'] >= 1) & (df['Total'] > 0)]
 assert df['Date'].is_monotonic_increasing
-assert (df['ASIN'].notna() & (df['ASIN'] != "")).all()
-df.drop_duplicates(subset=['Order', 'ASIN'], inplace=True)
+assert (df['Product'].notna() & (df['Product'] != "")).all()
+df.drop_duplicates(subset=['Order', 'Product'], inplace=True)
 del df['Order']
 df.reset_index(drop=True, inplace=True)
 # print(df)
@@ -32,5 +32,9 @@ df_date_ranges = df_date_ranges[df_date_ranges['BaseBegin'] >= oldest_order_date
 for date_range in df_date_ranges.itertuples():
     df_later = df[(date_range.LaterBegin <= df['Date']) & (df['Date'] <= date_range.LaterEnd)]
     df_base = df[(date_range.BaseBegin <= df['Date']) & (df['Date'] <= date_range.BaseEnd)]
-    print(date_range)
-    pass
+    common_products = pd.merge(df_later['Product'], df_base['Product'], how='inner')['Product'].drop_duplicates()
+    if len(common_products) == 0:
+        continue
+    df_later = df_later[df_later['Product'].isin(common_products)]
+    df_base = df_base[df_base['Product'].isin(common_products)]
+    
