@@ -6,7 +6,7 @@ DF_PATH = sys.argv[1]
 INPUT_USED_COLS = ['Order Date', 'Order ID', 'Title', 'ASIN/ISBN', 'Condition', 'Quantity', 'Item Total']
 
 df = pd.read_csv(DF_PATH, usecols=INPUT_USED_COLS, parse_dates=['Order Date'],
-                converters={'Item Total': lambda s: float(s.lstrip('$'))},
+                converters={'Item Total': lambda s: float(s.lstrip('$').replace(',', ''))},
                 )
 df.rename(columns={'Order Date': 'Date', 'Order ID': 'Order', 'ASIN/ISBN': 'ASIN', 'Item Total': 'TotalCost'}, inplace=True)
 df = df[df['Condition']=='new']
