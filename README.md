@@ -25,13 +25,13 @@ $ python -m papi ./your_amazon_data.csv
 
 Sample output:
 ```
-LastOrderDate=2022-07-31 NumCommonUniqueItems=40, Laspeyres=5.6%, Paasche=5.6%
-LastOrderDate=2022-07-30 NumCommonUniqueItems=40, Laspeyres=5.8%, Paasche=6.0%
-LastOrderDate=2022-07-28 NumCommonUniqueItems=38, Laspeyres=6.0%, Paasche=5.9%
-LastOrderDate=2022-07-26 NumCommonUniqueItems=36, Laspeyres=5.8%, Paasche=5.9%
-LastOrderDate=2022-07-25 NumCommonUniqueItems=36, Laspeyres=5.8%, Paasche=5.9%
-LastOrderDate=2022-07-24 NumCommonUniqueItems=36, Laspeyres=5.9%, Paasche=5.8%
-LastOrderDate=2022-07-20 NumCommonUniqueItems=35, Laspeyres=6.5%, Paasche=6.4%
-LastOrderDate=2022-07-17 NumCommonUniqueItems=35, Laspeyres=6.5%, Paasche=6.4%
-LastOrderDate=2022-07-16 NumCommonUniqueItems=30, Laspeyres=6.3%, Paasche=5.9%
+[LastOrderDate=2022-07-31] NumCommonUniqueItems=40, Laspeyres=5.6%, Paasche=5.6%
+[LastOrderDate=2022-07-30] NumCommonUniqueItems=40, Laspeyres=5.8%, Paasche=6.0%
+[LastOrderDate=2022-07-28] NumCommonUniqueItems=38, Laspeyres=6.0%, Paasche=5.9%
+[LastOrderDate=2022-07-26] NumCommonUniqueItems=36, Laspeyres=5.8%, Paasche=5.9%
+[LastOrderDate=2022-07-25] NumCommonUniqueItems=36, Laspeyres=5.8%, Paasche=5.9%
+[LastOrderDate=2022-07-24] NumCommonUniqueItems=36, Laspeyres=5.9%, Paasche=5.8%
+[LastOrderDate=2022-07-20] NumCommonUniqueItems=35, Laspeyres=6.5%, Paasche=6.4%
+[LastOrderDate=2022-07-17] NumCommonUniqueItems=35, Laspeyres=6.5%, Paasche=6.4%
+[LastOrderDate=2022-07-16] NumCommonUniqueItems=30, Laspeyres=6.3%, Paasche=5.9%
 ```

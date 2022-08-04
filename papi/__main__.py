@@ -51,6 +51,6 @@ for date_range in df_date_ranges.itertuples():
     paasche = (cost_sums['PaascheCostLater'] / cost_sums['PaascheCostBase']) - 1
     later_end_date = date_range.LaterEnd.date()
     # inflation.append({'Date': later_end_date, 'NumItems': num_items, 'Laspeyres': laspeyres, 'Paasche': paasche})
-    print(f'LastOrderDate={later_end_date} NumCommonUniqueItems={num_items:,}, Laspeyres={laspeyres:.1%}, Paasche={paasche:.1%}')
+    print(f'[LastOrderDate={later_end_date}] NumCommonUniqueItems={num_items:,}, Laspeyres={laspeyres:.1%}, Paasche={paasche:.1%}')
 # df_inflation = pd.DataFrame(inflation)
 # print(df_inflation)
