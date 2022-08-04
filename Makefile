@@ -9,4 +9,4 @@ pip-install:
 	./.venv/bin/pip install -U -r ./requirements-dev.in
 	test -f ./requirements.txt && ./.venv/bin/pip install -U -r ./requirements.txt || :
 run-sample:
-	./.venv/bin/python -m papi ./sample.csv
+	./.venv/bin/python -m papical ./sample.csv

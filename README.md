@@ -1,5 +1,5 @@
-# papi
-**papi** (Personal Amazon Price Inflation) is a simple [PoC](https://en.wikipedia.org/wiki/Proof_of_concept) to compute your running annual price inflation percentage. It implements the [Laspereyes](https://en.wikipedia.org/w/index.php?title=List_of_price_index_formulas&oldid=1077502962#Laspeyres) and [Paasche](https://en.wikipedia.org/w/index.php?title=List_of_price_index_formulas&oldid=1077502962#Paasche) approaches. This requires a substantial order history on Amazon.com over at least the last two years.
+# papical
+**papical** (**P**ersonal **A**mazon **P**rice **I**nflation **Cal**culator) is a simple [PoC](https://en.wikipedia.org/wiki/Proof_of_concept) to calculate your running annual price inflation percentage. It implements the [Laspereyes](https://en.wikipedia.org/w/index.php?title=List_of_price_index_formulas&oldid=1077502962#Laspeyres) and [Paasche](https://en.wikipedia.org/w/index.php?title=List_of_price_index_formulas&oldid=1077502962#Paasche) approaches. This requires a substantial order history on Amazon.com over at least the last two years.
 
 In the implemented [price index calculation](https://en.wikipedia.org/w/index.php?title=Price_index&oldid=1062591479#Formal_calculation),
 * The **later period** is defined as the period from the most recent order date (of any order) to a year before it, e.g. from 22 May 2021 to 21 May 2022.
@@ -20,7 +20,7 @@ Download the CSV of your [order history](https://www.amazon.com/b2b/reports) usi
 In a new Python 3.10 virtual environment:
 ```shell
 $ pip install -r ./requirements.txt
-$ python -m papi ./your_amazon_data.csv
+$ python -m papical ./your_amazon_data.csv
 ```
 
 Sample output:
