@@ -42,4 +42,5 @@ for date_range in df_date_ranges.itertuples():
     df_base['AvgCost'] = df_base['Cost'] / df_base['Quantity']
     del df_later['Cost']
     del df_base['Cost']
+    df_date_range = pd.merge(df_later, df_base, on='Product', suffixes=('Later', 'Base'), validate='1:1')
     pass
