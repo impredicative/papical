@@ -11,11 +11,11 @@ As a disclaimer, this software is not associated with Amazon. No guarantee is ma
 
 Download the CSV of your [order history](https://www.amazon.com/b2b/reports) using these parameters:
 
-| Parameter   | Value                           |
-|-------------|---------------------------------|
-| Report Type | Items                           |
-| Start Date  | 01/01/2006                      |
-| End Date    | (today's date, e.g. 10/31/2022) |
+| Parameter   | Value                                                      |
+|-------------|------------------------------------------------------------|
+| Report Type | Items                                                      |
+| Start Date  | 01/01/2006 (or at least 2 full years ago, e.g. 02/02/2020) |
+| End Date    | (today's date, e.g. 10/10/2022)                            |
 
 In a new Python 3.10 virtual environment:
 ```shell
