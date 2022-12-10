@@ -3,10 +3,11 @@
 create-venv:
 	python -m venv .venv
 pip-compile:
-	./.venv/bin/pip-compile -U
+	pip install -U pip pip-tools
+	pip-compile -U --resolver=backtracking
 pip-install:
-	./.venv/bin/pip install -U pip
-	./.venv/bin/pip install -U -r ./requirements-dev.in
-	test -f ./requirements.txt && ./.venv/bin/pip install -U -r ./requirements.txt || :
+	pip install -U pip
+	pip install -U -r ./requirements-dev.in
+	test -f ./requirements.txt && pip install -U -r ./requirements.txt || :
 run-sample:
-	./.venv/bin/python -m papical ./sample.csv
+	python -m papical ./sample.csv
