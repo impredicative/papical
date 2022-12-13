@@ -1,5 +1,5 @@
 # papical
-**papical** (**P**ersonal **A**mazon **P**rice **I**nflation **Cal**culator) is a simple [PoC](https://en.wikipedia.org/wiki/Proof_of_concept) to calculate your running annual price inflation percentage. It implements the [Laspereyes](https://en.wikipedia.org/w/index.php?title=List_of_price_index_formulas&oldid=1077502962#Laspeyres) and [Paasche](https://en.wikipedia.org/w/index.php?title=List_of_price_index_formulas&oldid=1077502962#Paasche) approaches. This requires a substantial order history on Amazon.com over at least the last two years.
+**papical** (**P**ersonal **A**mazon **P**rice **I**nflation **Cal**culator) is a simple [PoC](https://en.wikipedia.org/wiki/Proof_of_concept) to calculate your running annual price inflation percentage. It implements the [Laspereyes](https://en.wikipedia.org/w/index.php?title=List_of_price_index_formulas&oldid=1077502962#Laspeyres), [Paasche](https://en.wikipedia.org/w/index.php?title=List_of_price_index_formulas&oldid=1077502962#Paasche), and [Fisher](https://en.wikipedia.org/w/index.php?title=List_of_price_index_formulas&oldid=1103634762#Fisher) approaches. This requires a substantial order history on Amazon.com over at least the last two years.
 
 In the implemented [price index calculation](https://en.wikipedia.org/w/index.php?title=Price_index&oldid=1062591479#Formal_calculation),
 * The **later period** is defined as the period from the most recent order date (of any order) to a year before it, e.g. from 22 May 2021 to 21 May 2022.
@@ -25,13 +25,19 @@ $ python -m papical ./your_amazon_data.csv
 
 Sample output:
 ```
-[LastOrderDate=2022-07-31] NumCommonUniqueItems=40, Laspeyres=5.6%, Paasche=5.6%
-[LastOrderDate=2022-07-30] NumCommonUniqueItems=40, Laspeyres=5.8%, Paasche=6.0%
-[LastOrderDate=2022-07-28] NumCommonUniqueItems=38, Laspeyres=6.0%, Paasche=5.9%
-[LastOrderDate=2022-07-26] NumCommonUniqueItems=36, Laspeyres=5.8%, Paasche=5.9%
-[LastOrderDate=2022-07-25] NumCommonUniqueItems=36, Laspeyres=5.8%, Paasche=5.9%
-[LastOrderDate=2022-07-24] NumCommonUniqueItems=36, Laspeyres=5.9%, Paasche=5.8%
-[LastOrderDate=2022-07-20] NumCommonUniqueItems=35, Laspeyres=6.5%, Paasche=6.4%
-[LastOrderDate=2022-07-17] NumCommonUniqueItems=35, Laspeyres=6.5%, Paasche=6.4%
-[LastOrderDate=2022-07-16] NumCommonUniqueItems=30, Laspeyres=6.3%, Paasche=5.9%
+[LastOrderDate=2022-12-10] NumCommonUniqueItems=46, Laspeyres=6.8%, Paasche=6.6% Fisher=6.7%
+[LastOrderDate=2022-12-09] NumCommonUniqueItems=45, Laspeyres=6.8%, Paasche=6.6% Fisher=6.7%
+[LastOrderDate=2022-12-08] NumCommonUniqueItems=45, Laspeyres=6.8%, Paasche=6.5% Fisher=6.6%
+[LastOrderDate=2022-12-07] NumCommonUniqueItems=46, Laspeyres=6.6%, Paasche=6.4% Fisher=6.5%
+[LastOrderDate=2022-12-01] NumCommonUniqueItems=46, Laspeyres=6.2%, Paasche=6.4% Fisher=6.3%
+[LastOrderDate=2022-11-28] NumCommonUniqueItems=46, Laspeyres=6.2%, Paasche=6.4% Fisher=6.3%
+[LastOrderDate=2022-11-25] NumCommonUniqueItems=46, Laspeyres=6.3%, Paasche=6.6% Fisher=6.4%
+[LastOrderDate=2022-11-21] NumCommonUniqueItems=46, Laspeyres=5.7%, Paasche=6.1% Fisher=5.9%
+[LastOrderDate=2022-11-19] NumCommonUniqueItems=46, Laspeyres=5.5%, Paasche=5.4% Fisher=5.5%
+[LastOrderDate=2022-11-18] NumCommonUniqueItems=46, Laspeyres=5.5%, Paasche=5.3% Fisher=5.4%
+[LastOrderDate=2022-11-12] NumCommonUniqueItems=46, Laspeyres=5.5%, Paasche=5.2% Fisher=5.3%
+[LastOrderDate=2022-11-07] NumCommonUniqueItems=46, Laspeyres=5.5%, Paasche=5.2% Fisher=5.3%
+[LastOrderDate=2022-11-05] NumCommonUniqueItems=47, Laspeyres=5.5%, Paasche=5.9% Fisher=5.7%
+[LastOrderDate=2022-10-30] NumCommonUniqueItems=47, Laspeyres=5.5%, Paasche=6.0% Fisher=5.7%
+[LastOrderDate=2022-10-17] NumCommonUniqueItems=48, Laspeyres=5.9%, Paasche=6.1% Fisher=6.0%
 ```
